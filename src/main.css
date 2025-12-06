@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#vue-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-width: 320px;
+  height: 80vh;
+}
+
+h1 {
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 500;
+}
