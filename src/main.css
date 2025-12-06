@@ -4,18 +4,64 @@
   box-sizing: border-box;
 }
 
-#vue-app {
+:root {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+body {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100vw;
+}
+
+#vue-app {
+  padding: 1.5rem 1rem;
+  width: 640px;
   min-width: 320px;
-  height: 80vh;
 }
 
 h1 {
-  font-family: system-ui, sans-serif;
+  margin-bottom: 2rem;
   font-size: 2rem;
   line-height: 3rem;
   font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: hsl(190, 10%, 85%);
+  border-radius: 0.25rem;
+}
+
+label {
+  display: block;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  background-color: hsl(95, 65%, 50%);
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+
+  &.destructive {
+    background-color: hsl(350, 80%, 55%);
+  }
 }

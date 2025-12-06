@@ -16,13 +16,33 @@ const supabase = createClient(url, key);
  * @returns Undefined if not signed in
  */
 function useUserSession() {
+  const loading = ref(true);
   const user = ref<User | undefined>();
 
   supabase.auth.onAuthStateChange((_, session) => {
     user.value = session?.user;
+    loading.value = false;
   });
 
-  return { user };
+  async function signIn(email: string, password: string) {
+    const credentials = { email, password };
+
+    const { error } = await supabase.auth.signInWithPassword(credentials);
+
+    if (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  async function signOut() {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  return { loading, user, signIn, signOut };
 }
 
 export { supabase, useUserSession };
